@@ -24,4 +24,6 @@ This "for" loop is so simple, yet is the backbone of the entire program. All it 
 
 ## Acknowledgments
 plux on https://forum.processing.org/two/discussion/3080/rotating-cubes
+
 Jonathan Pleiburg for his "peasycam" library for Processing
+
