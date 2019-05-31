@@ -10,13 +10,13 @@ class Line {
     startZ = zCalc (time - .01); //calculate the z position at previous time "t"
   }
   public float xCalc (float t) {
-    return -(xFunction(t) + xVectorField(t)); //add together the displacement and vector field for x
+    return -(xFunction(t) + xVectorField(xFunction(t))); //add together the displacement and vector field for x
   }
   public float yCalc (float t) {
-    return yFunction(t) + yVectorField(t); //add together the displacement and vector field for y
+    return yFunction(t) + yVectorField(yFunction(t)); //add together the displacement and vector field for y
   }
   public float zCalc (float t) {
-    return zFunction(t) + zVectorField(t); //add together the displacement and vector field for z
+    return zFunction(t) + zVectorField(zFunction(t)); //add together the displacement and vector field for z
   }
   
   private float xFunction (float t) {
@@ -29,14 +29,14 @@ class Line {
     return v0 * t * sin(phi) -  g * t * t / 2 + (0); //z displacement after time "t"
   }
   
-  private float xVectorField (float t) {
-    return -t*t; //x component of vector at time "t"
+  private float xVectorField (float x) {
+    return d*x; //x component of vector at time "t"
   }
-  private float yVectorField (float t) {
-    return -3*t*t; //y component of vector at time "t"
+  private float yVectorField (float y) {
+    return d*-y; //y component of vector at time "t"
   }
-  private float zVectorField (float t) {
-    return t*0; //z component of vector at time "t"
+  private float zVectorField (float z) {
+    return d*z; //z component of vector at time "t"
   }
   
   void show() {
