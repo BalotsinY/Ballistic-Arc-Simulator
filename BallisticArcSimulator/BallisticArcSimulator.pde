@@ -3,7 +3,7 @@ PeasyCam CAM;
 PeasyCam BUFFERCAM;
 PGraphics buffer;
 
-static float startT, endT, v0, theta, phi, g = 9.8, d;
+static float startT, endT, v0, theta, phi, g = 9.8, d, res;
 /**
 startT is the starting time, so 0
 endT is the ending time, which is when the height (z) of the projectile is 0
@@ -33,12 +33,13 @@ void setup() {
   v0 = 100; //set the initial velocity
   theta = PI/4; //set launch direction
   phi = PI/3; //set launch angle
-  d = 0.005; //drag coefficient
+  d = 0.47; //drag coefficient
+  res = .01;
   
   startT = 0;
   endT = (2*v0*sin(phi))/9.8; //calculate the time when the projectile hits the ground
   
-  for (float i = startT; i < endT; i += .01) { //creates a small line for every .01 "t" - very high "resolution" of line thanks to that
+  for (float i = startT; i < endT; i += res) { //creates a small line for every .01 "t" - very high "resolution" of line thanks to that
     lines.add(new Line (i));
   }
   
