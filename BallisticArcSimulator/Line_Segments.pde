@@ -11,6 +11,7 @@ class Line {
   }
   public float xCalc (float t) {
     return -(xFunction(t) + xVectorField(xFunction(t), yFunction(t), zFunction(t))); //add together the displacement and vector field for x
+    //This is negative in order to make the graph look more natural. By default, positive x goes in the opposite direction.
   }
   public float yCalc (float t) {
     return yFunction(t) + yVectorField(xFunction(t), yFunction(t), zFunction(t)); //add together the displacement and vector field for y
@@ -29,13 +30,13 @@ class Line {
     return v0 * t * sin(phi) -  g * t * t / 2 + (0); //z displacement after time "t"
   }
   
-  private float xVectorField (float x, float y, float z) {
+  private float xVectorField (float x, float y, float z) { //x component of the vector field - manipulate the return statement for desired function
     return d*x; //x component of vector at time "t"
   }
-  private float yVectorField (float x, float y, float z) {
+  private float yVectorField (float x, float y, float z) { //y component of the vector field - manipulate the return statement for desired function
     return d*y; //y component of vector at time "t"
   }
-  private float zVectorField (float x, float y, float z) {
+  private float zVectorField (float x, float y, float z) { //z component of the vector field - manipulate the return statement for desired function
     return d*0; //z component of vector at time "t"
   }
   
@@ -45,8 +46,3 @@ class Line {
     line (startX, startY, startZ, endX, endY, endZ); //draw a line from the starting x,y,z to the ending x,y,z
   }
 }
-/**
-  The original idea of this project was to create a ballistic arc grapher/simulator, which I achieved to an extent.
-  What the current one does, is it takes in a starting velocity, launch angle, launch direction, and affects the trajectory
-  through the use of a vector field. However, there is an issue. The issue is
-**/
