@@ -1,7 +1,5 @@
 import peasy.*;
-PeasyCam CAM;
-PeasyCam BUFFERCAM;
-PGraphics buffer;
+PeasyCam CAM;  `
 
 static float startT, endT, v0, theta, phi, g = 9.8, d, res;
 /**
